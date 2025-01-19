@@ -19,6 +19,8 @@ const transactionRouter = require('./app/transaction/router');
 const playerRouter = require('./app/player/router');
 const authRouter = require('./app/auth/router');
 
+const router = express.Router();
+
 const app = express();
 const URL = `/api/v1`
 app.use(cors())
@@ -64,4 +66,3 @@ app.get("/", (req, res) => res.send("Express on Vercel"));
 app.listen(3000, () => console.log("Server ready on port 3000."));
 
 module.exports = app;
-

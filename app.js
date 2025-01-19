@@ -19,6 +19,8 @@ const transactionRouter = require('./app/transaction/router');
 const playerRouter = require('./app/player/router');
 const authRouter = require('./app/auth/router');
 
+const router = express.Router();
+
 const app = express();
 const URL = `/api/v1`
 app.use(cors())
@@ -59,15 +61,8 @@ app.use(function (req, res, next) {
   next(createError(404));
 });
 
-// error handler
-app.use(function (err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+app.get("/", (req, res) => res.send("Express on Vercel"));
 
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
-});
+app.listen(3000, () => console.log("Server ready on port 3000."));
 
 module.exports = app;
