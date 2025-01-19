@@ -49,9 +49,12 @@ module.exports = {
                     res.redirect('/')
                 }
             } else {
+                console.log('Stored password:', check.password);
+                console.log('Input password:', password);
                 req.flash('alertMessage', `Email yang anda input salah`)
                 req.flash('alertStatus', 'danger')
                 res.redirect('/')
+                
             }
         } catch (err) {
             req.flash('alertMessage', `${err.message}`)
