@@ -5,6 +5,7 @@
   "scripts": {
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/www",
+    "build": "node server.js",
     "pro": "env-cmd -f ./.env nodemon ./bin/www"
 
   },
