@@ -8,6 +8,21 @@ const session = require('express-session');
 const flash = require('connect-flash');
 var cors = require('cors')
 
+const db = require('./db'); // Import the database configuration
+
+db.on('connected', () => {
+  console.log('MongoDB connected successfully');
+});
+
+db.on('error', (err) => {
+  console.error('MongoDB connection error:', err);
+});
+
+db.on('disconnected', () => {
+  console.log('MongoDB disconnected');
+});
+
+
 const dashboardRouter = require('./app/dashboard/router.js');
 const categoryRouter = require('./app/category/router.js');
 const nominalRouter = require('./app/nominal/router.js');
@@ -18,8 +33,6 @@ const usersRouter = require('./app/users/router.js');
 const transactionRouter = require('./app/transaction/router.js');
 const playerRouter = require('./app/player/router.js');
 const authRouter = require('./app/auth/router.js');
-
-const router = express.Router();
 
 const app = express();
 const URL = `/api/v1`
@@ -56,10 +69,6 @@ app.use('/transaction', transactionRouter);
 //api
 app.use(`${URL}/players`, playerRouter)
 app.use(`${URL}/auth`, authRouter)
-// catch 404 and forward to error handler
-app.use(function (req, res, next) {
-  next(createError(404));
-});
 
 app.get("/", (req, res) => res.send("Express on Vercel"));
 
