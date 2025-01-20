@@ -8,16 +8,16 @@ const session = require('express-session');
 const flash = require('connect-flash');
 var cors = require('cors')
 
-const dashboardRouter = require('./app/dashboard/router');
-const categoryRouter = require('./app/category/router');
-const nominalRouter = require('./app/nominal/router');
-const voucherRouter = require('./app/voucher/router');
-const bankRouter = require('./app/bank/router');
-const paymentRouter = require('./app/payment/router');
-const usersRouter = require('./app/users/router');
-const transactionRouter = require('./app/transaction/router');
-const playerRouter = require('./app/player/router');
-const authRouter = require('./app/auth/router');
+const dashboardRouter = require('./app/dashboard/router.js');
+const categoryRouter = require('./app/category/router.js');
+const nominalRouter = require('./app/nominal/router.js');
+const voucherRouter = require('./app/voucher/router.js');
+const bankRouter = require('./app/bank/router.js');
+const paymentRouter = require('./app/payment/router.js');
+const usersRouter = require('./app/users/router.js');
+const transactionRouter = require('./app/transaction/router.js');
+const playerRouter = require('./app/player/router.js');
+const authRouter = require('./app/auth/router.js');
 
 const router = express.Router();
 
